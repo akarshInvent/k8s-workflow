@@ -1,6 +1,6 @@
 format_version: 3
 pipelines:
-  test_application:
+  test_k8s_application:
     group: sample
     label_template: ${COUNT}
     lock_behavior: unlockWhenFinished
@@ -12,14 +12,14 @@ pipelines:
         stage: build_and_publish_image
         name: upstream
     stages:
-    - test_app_image:
+    - test_app_k8s_image:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
         approval:
           type: success
         jobs:
-          test_app_image:
+          test_app_k8s_image:
             timeout: 0
             elastic_profile_id: demo-app
             tasks:
