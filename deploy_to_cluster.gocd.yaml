@@ -1,6 +1,6 @@
 format_version: 3
 pipelines:
-  deploy_to_cluster:
+  deploy_to_k8s_cluster:
     group: sample
     label_template: ${COUNT}
     lock_behavior: none
@@ -18,7 +18,7 @@ pipelines:
         branch: master
         name: SourceCodeRepo
     stages:
-    - deploy_to_cluster:
+    - deploy_to_k8s_cluster:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
