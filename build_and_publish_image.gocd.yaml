@@ -25,7 +25,7 @@ pipelines:
         jobs:
           build_image:
             timeout: 0
-            elastic_profile_id: demo-app
+            elastic_profile_id: k8s-cluster-profile
             artifacts:
             - external:
                 id: bulletin-board
@@ -38,7 +38,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                echo "DOCKERHUB_USERNAME: ${DOCKERHUB_USERNAME}"
+                - echo "DOCKERHUB_USERNAME: ${DOCKERHUB_USERNAME}" && echo "GO_PIPELINE_LABEL ${GO_PIPELINE_LABEL}"
                 # - docker build -t $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL . -f Dockerfile.application
                 command: /bin/bash
                 run_if: passed
