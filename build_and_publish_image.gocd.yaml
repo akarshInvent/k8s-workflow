@@ -2,9 +2,9 @@ format_version: 3
 pipelines:
   build_and_publish:
     group: flowBegin
-    environment_variables:
-      DOCKERHUB_USERNAME: "aprasadcs"
-      GO_PIPELINE_LABEL: "testTag"
+    # environment_variables:
+      # DOCKERHUB_USERNAME: "aprasadcs"
+      # GO_PIPELINE_LABEL: "testTag"
     label_template: ${COUNT}
     lock_behavior: unlockWhenFinished
     display_order: 1
